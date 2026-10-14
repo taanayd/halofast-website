@@ -174,13 +174,14 @@ function App() {
               <p>Join the launch list for occasional HaloFast updates. No fake launch date, no spam — just news when there’s something real to share.</p>
               <form className="waitlist-form" onSubmit={handleSubmit}>
                 <label className="sr-only" htmlFor="email">Email address</label>
-                <input id="email" type="email" autoComplete="email" placeholder="you@example.com" value={email} onChange={e => { setEmail(e.target.value); if (status !== 'loading') setStatus('idle') }} required />
-                <button type="submit" disabled={status === 'loading'}>{status === 'loading' ? 'Joining…' : 'Join the list'} <ArrowIcon /></button>
+                <input id="email" type="email" autoComplete="email" placeholder="you@example.com" value={email} onChange={e => { setEmail(e.target.value); if (status !== 'loading') setStatus('idle') }} required disabled={!FORMSPREE_ENDPOINT} />
+                <button type="submit" disabled={status === 'loading' || !FORMSPREE_ENDPOINT}>{status === 'loading' ? 'Joining…' : FORMSPREE_ENDPOINT ? 'Join the list' : 'Signups opening soon'} {FORMSPREE_ENDPOINT && <ArrowIcon />}</button>
               </form>
               <div className={`form-message ${status}`} aria-live="polite">
                 {status === 'success' && 'You’re on the list — thanks for your interest.'}
                 {status === 'error' && 'That didn’t go through. Please try again in a moment.'}
                 {status === 'not-configured' && 'The launch list is not connected yet. Please check back soon.'}
+                {status === 'idle' && !FORMSPREE_ENDPOINT && 'Email signup is temporarily unavailable while the launch list is being connected.'}
               </div>
               <div className="privacy-note"><span aria-hidden="true">⌑</span> Your email is for HaloFast launch updates only. <a href="/privacy.html">Privacy policy</a></div>
             </div>

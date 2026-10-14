@@ -148,7 +148,8 @@ h1 span, h2 span { color: var(--orange); }
 .waitlist-form input::placeholder { color: #6f7d9f; }
 .waitlist-form input:focus { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(255,150,59,.1); }
 .waitlist-form button { border: 0; cursor: pointer; min-height: 47px; border-radius: 9px; padding: 0 16px; display: flex; align-items: center; gap: 10px; background: var(--orange); color: #15182a; font-size: 14px; font-weight: 800; white-space: nowrap; }
-.waitlist-form button:disabled { opacity: .65; cursor: wait; }
+.waitlist-form button:disabled { opacity: .65; cursor: not-allowed; }
+.waitlist-form input:disabled { opacity: .65; cursor: not-allowed; }
 .form-message { min-height: 20px; margin-top: 9px; font-size: 13px; color: #b7c5dc; }
 .form-message.success { color: #9fe0b2; }
 .form-message.error { color: #ffaaa0; }
