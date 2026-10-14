@@ -15,7 +15,7 @@ A responsive React + Vite landing page for **HaloFast**, the offline-first inter
 - GitHub Actions workflow to build and deploy to GitHub Pages
 - Reduced-motion and accessible form states
 
-## Important: connect the waitlist before announcing it
+## Waitlist configuration
 
 The waitlist form is deliberately not presented as working until you configure a submission provider. This avoids telling visitors they joined when no email was stored.
 
@@ -26,7 +26,7 @@ The waitlist form is deliberately not presented as working until you configure a
 5. The included `.github/workflows/deploy.yml` already passes this variable into the Vite production build.
 6. Commit and push. Test the form with an address you control and confirm the submission appears in your form provider.
 
-The current privacy contact is `halofastapp@outlook.com`. The public signup stays disabled until the provider endpoint is configured. Review the provider's processing terms and update the privacy notice for the actual setup before enabling collection. This policy is a starter template, not legal advice.
+The live waitlist uses Formspree form `xyekbyeg`; its workflow sends a notification to `halofastapp@outlook.com` and archives submissions. The public privacy contact is also `halofastapp@outlook.com`. Review the provider's processing terms and keep the privacy notice aligned with the actual setup. This policy is a starter template, not legal advice.
 
 `VITE_` variables are included in client-side build output, so use only a public form endpoint here. Never put private API keys or secrets in a Vite environment variable.
 
@@ -109,7 +109,7 @@ For stronger domain security, verify ownership of the domain in your GitHub acco
 ## Privacy page and social profiles
 
 - The privacy notice is published at `https://halofast.app/privacy.html` after deployment.
-- The privacy contact is `halofastapp@outlook.com`. This address is visible to all site visitors. Review the provider, data-retention, legal-basis, and transfer details before enabling the waitlist.
+- The privacy contact is `halofastapp@outlook.com`. This address is visible to all site visitors. The waitlist is configured with Formspree; review its processing terms and applicable data-handling requirements.
 - The footer links are set to `@halofastapp` on X and Instagram and a `halofastapp` LinkedIn company page. Confirm those URLs belong to you before publishing; edit the anchors in `src/main.jsx` if needed.
 - The Open Graph preview image is `public/og-image.png` (1200×630). The page metadata points to `https://halofast.app/og-image.png`.
 
@@ -126,8 +126,8 @@ git push
 ## Customize before launch
 
 - Update social links once HaloFast's official social profiles exist.
-- Connect the waitlist form before inviting people to join.
-- Before collecting emails, confirm the form provider, legal basis, retention and transfer details, and obtain appropriate legal review. A template is not a guarantee of legal compliance.
+- The waitlist currently sends submissions to Formspree and notification emails to the configured Outlook address. Confirm provider settings and applicable data-handling requirements before promoting it widely.
+- A template is not a guarantee of legal compliance.
 - Verify that the social-profile URLs in `src/main.jsx` are the official HaloFast accounts; replace any that are not active.
 - Confirm product commitments and feature plans before treating them as final public promises.
 - Keep the launch date unspecified until it is confirmed.
